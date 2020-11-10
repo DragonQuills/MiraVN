@@ -1,6 +1,6 @@
 # **Mira**
 ## **Description**
-A visual novel made in a few days so I could practice RenPy. It focuses on the main character's relationship with their friend, Mira. It's mainly made with open source resources, but the coding and writing is my own. Currently in progress, so features listed are in development.
+A visual novel made in a few days so I could practice Ren'Py. It focuses on the main character's relationship with their friend, Mira. It's mainly made with open source resources, but the coding and writing are my own. Currently in progress, so features listed are in development.
 
 ### *Features*
 - Create your own character - input your name, pick between three appearances, and choose your pronouns (with write-in options available!)
@@ -9,7 +9,7 @@ A visual novel made in a few days so I could practice RenPy. It focuses on the m
 - Pretty photo backgrounds and cute anime-style characters
 - Choices that will make Mira like you more or less
 - 4 different endings
-- A cute cat cafe and a pretty park
+- Cats!
 
 ## **Gameplay Images**
 Coming soon!
