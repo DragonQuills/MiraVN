@@ -1,6 +1,5 @@
 # **Mira**
 ## **Description**
--------
 A visual novel made in a few days so I could practice RenPy. It focuses on the main character's relationship with their friend, Mira. It's mainly made with open source resources, but the coding and writing is my own. Currently in progress, so features listed are in development.
 
 ### *Features*
@@ -19,7 +18,6 @@ Coming soon!
 Also coming soon!
 
 ## **Credits**
----
 ### **Artwork**
 Character Sprites by Sutemo
 
