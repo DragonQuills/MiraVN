@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 259: expected statement.
-    affection += 10
-              ^
-
-File "game/script.rpy", line 270: expected statement.
-    affection -=10
-               ^
+File "game/script.rpy", line 51: Menu does not contain any choices.
+    menu:
+         ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Mon Nov 09 22:17:41 2020
+Tue Nov 10 12:46:24 2020

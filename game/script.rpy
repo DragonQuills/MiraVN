@@ -1,5 +1,4 @@
-﻿
-define m = Character("Mira", color = "#F6AEA0")
+﻿define m = Character("Mira", color = "#F6AEA0")
 define mc = Character("[name]", color = "#6db0eb")
 
 image mira sad = im.FactorScale("images/mira/mira sad.png", 0.6)
@@ -11,17 +10,42 @@ image mira annoyed = im.FactorScale("images/mira/mira annoyed.png", 0.6)
 image mira delighted = im.FactorScale("images/mira/mira delighted.png", 0.6)
 image mira smug = im.FactorScale("images/mira/mira smug.png", 0.6)
 
+default menu_style = "v"
+
 # The game starts here.
 label start:
-    python:
-        name = renpy.input("What's your name?")
+    label setup:
+        python:
+            name = renpy.input("What's your name?")
 
-        name = name.strip() or ("Kayden")
+            name = name.strip() or ("Kayden")
 
-        # how much Mira likes the MC.
-        # Needs to be above something for dating or strong friendship
-        # If too low, MC and Mira will drift apart.
-        affection = 50
+            # how much Mira likes the MC.
+            # Needs to be above something for dating or strong friendship
+            # If too low, MC and Mira will drift apart.
+            affection = 50
+
+
+        show masc at left
+        show fem at center
+        show andro at right
+
+        $ menu_style = "char"
+
+        # TODO: put this stuff in the gui or screen file somehow, it shouldn't be here.
+        define gui.choice_button_width = 350
+
+        menu:
+            "Pick what you want to look like."
+
+            "Definitely this cutie!":
+                $ pass
+                
+            "No, this cutie!":
+                $ pass
+
+            "Wait no, this one!":
+                $ pass
 
     label park_intro:
         scene bg park
@@ -41,7 +65,7 @@ label start:
 
         "The sunlight made a mosaic out of the freshly fallen autumn leaves and the cool breeze coming off of the lake felt nice on my skin."
 
-        "Fall had always been my favorite season. Something about the feeling of change in the air was somehow exhilerating and peaceful to me."
+        "Fall had always been my favorite season. Something about the feeling of change in the air was somehow exhilerating yet peaceful to me."
 
         "This year was particularly beautiful. Every tree seemed to be trying to outshine all the others with dazzling colors. There was a faint scent of maple in the air and the only sound was the quiet breeze as it rustled the leaves."
 
@@ -56,7 +80,7 @@ label start:
 
         m "Ahhhhh I'm sorry I'm late again!!!"
 
-        "Mira charged over to me and flung her arms around me in a tight hug."
+        "Mira charged over to me and flung her arms around me in a tight hug. She always smelled a little bit like pumpkin spice during autumn and today was no exception."
 
         m "Please please please don't be upset, I promise there's a good reason!"
 
@@ -134,7 +158,7 @@ label start:
 
             "Mira turned the full force of her sad puppy-dog eyes towards me."
 
-            m "That's my favorite flavor..."
+            m "You know chocolate's my favorite flavor..."
 
             menu:
                 "Give it back.":
@@ -212,6 +236,8 @@ label start:
 
             "She offered me an orange Danish and sat back down to what looked like a razzberry crossiant."
 
+            m "Thanks for eating the orange ones! I don't like them, too sour for me."
+
             jump leaving_park
 
         label leaving_park:
@@ -281,17 +307,20 @@ label start:
 
                 jump go_home
 
-            label go_home:
-                # fix that!
-                "You said goodbye to Mira and walked back to your apartment."
+        label go_home:
+            # fix that!
+            "I said goodbye to Mira and started to walk back to my apartment."
 
-                show mira happy
-                m "Remember, 10am sharp! If you're late you have to buy the drinks."
+            show mira happy
 
-                mc "Yeah right, as if you're going to get there earlier than I am, Ms. Hour Late!"
+            m "Remember, 10am sharp! If you're late you have to buy the drinks."
 
-                # make mira walk off the screen somehow?
-                # mc goes home and goes to cafe next morning
+            mc "Yeah right, as if you're going to get there earlier than I am, Ms. Hour Late!"
+
+            "Mira stuck out her tongue at me and we both went our seperate ways."
+
+            # make mira walk off the screen somehow?
+            # mc goes home and goes to cafe next morning
 
 
 
