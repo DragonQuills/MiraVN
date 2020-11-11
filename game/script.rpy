@@ -1,29 +1,13 @@
-﻿define m = Character("Mira", color = "#F6AEA0")
-define mc = Character("[name]", color = "#6db0eb")
+﻿################################################################################
+## Initialization
+################################################################################
 
-image mira sad = im.FactorScale("images/mira/mira sad.png", 0.6)
-image mira happy = im.FactorScale("images/mira/mira happy.png", 0.6)
-image mira shocked = im.FactorScale("images/mira/mira shocked.png", 0.6)
-image mira normal = im.FactorScale("images/mira/mira normal.png", 0.6)
-image mira angry = im.FactorScale("images/mira/mira angry.png", 0.6)
-image mira annoyed = im.FactorScale("images/mira/mira annoyed.png", 0.6)
-image mira delighted = im.FactorScale("images/mira/mira delighted.png", 0.6)
-image mira smug = im.FactorScale("images/mira/mira smug.png", 0.6)
+init python:
+    # this adds a new layer 'mcsprite' so the main character sprite is in front of the text box
+    config.layers = [ 'master', 'transient', 'screens', 'overlay', 'mcsprite' ]
 
-image char1 andro fem = im.FactorScale("images/mc/char1 andro fem.png", 0.4)
-image char2 andro masc = im.FactorScale("images/mc/char2 andro masc.png", 0.4)
-image char3 fem = im.FactorScale("images/mc/char3 fem.png", 0.4)
-image char4 masc = im.FactorScale("images/mc/char4 masc.png", 0.4)
-
-default mc_type = "andro_masc"
-
-transform mc_transform:
-    xalign 0.0
-    zoom 0.3
-
-image mc smile = At(DynamicImage("images/mc/[mc_type]/smile.png"), mc_transform)
-
-
+# The menu has two options - "char" and "v"
+# v is the basic vertical menu. "char" is a spread out horizontal menu only used on the character selection screen
 default menu_style = "v"
 
 transform center_right:
@@ -34,7 +18,50 @@ transform center_right:
     xalign 0.60
     yalign 1.0
 
-# The game starts here.
+################################################################################
+## Character Definitions
+################################################################################
+
+define m = Character("Mira", color = "#F6AEA0")
+define mc = Character("[name]", color = "#6db0eb")
+
+
+################################################################################
+## Images
+################################################################################
+# Define Mira images
+image mira sad = im.FactorScale("images/mira/mira sad.png", 0.6)
+image mira happy = im.FactorScale("images/mira/mira happy.png", 0.6)
+image mira shocked = im.FactorScale("images/mira/mira shocked.png", 0.6)
+image mira normal = im.FactorScale("images/mira/mira normal.png", 0.6)
+image mira angry = im.FactorScale("images/mira/mira angry.png", 0.6)
+image mira annoyed = im.FactorScale("images/mira/mira annoyed.png", 0.6)
+image mira delighted = im.FactorScale("images/mira/mira delighted.png", 0.6)
+image mira smug = im.FactorScale("images/mira/mira smug.png", 0.6)
+
+# Define images for the character picker screen
+image char1 andro fem = im.FactorScale("images/mc/char1 andro fem.png", 0.4)
+image char2 andro masc = im.FactorScale("images/mc/char2 andro masc.png", 0.4)
+image char3 fem = im.FactorScale("images/mc/char3 fem.png", 0.4)
+image char4 masc = im.FactorScale("images/mc/char4 masc.png", 0.4)
+
+# Set up MC images
+default mc_type = "andro_masc"
+
+# used to position the mc at the lower left corner of the screen at a small size
+transform mc_transform:
+    xalign -0.05
+    zoom 0.3
+
+# The DynamicImage lets me do string interpolation of mc_type to let the player pick their character
+# the At(imagelike, transformations) lets me apply the position and zoom as defaults
+image mc smile = At(DynamicImage("images/mc/[mc_type]/smile.png"), mc_transform)
+image mc shocked = At(DynamicImage("images/mc/[mc_type]/shocked.png"), mc_transform)
+
+################################################################################
+## Game
+################################################################################
+
 label start:
     transform center_right:
         xalign 0.35
@@ -55,7 +82,7 @@ label start:
             # If too low, MC and Mira will drift apart.
             affection = 50
 
-
+        # Display characters for character picker
         show char1 andro fem:
             xalign -0.10
             yalign 1.0
@@ -78,6 +105,8 @@ label start:
         # TODO: put this stuff in the gui or screen file somehow, it shouldn't be here.
         define gui.choice_button_width = 300
 
+        # TODO: reset the menu type and the gui button width after this menu.
+
         menu:
             "Pick what you want to look like."
 
@@ -92,24 +121,33 @@ label start:
             
             "Final answer, this bae!":
                 $ mc_type = "masc"
+        
+        # pick pronouns!
 
         # label are_you_sure_setup:
+        #     # hide characters except the one the player chose
+        #     # move the one the player chose to the center
+        #     $ menu_style = "v"
         #     menu:
         #         "Name: [name]"
+
 
     label park_intro:
         scene bg park
         with Dissolve(1)
 
-        show mc smile
+        # you need to do "onlayer mcsprite" to make the mc show up in the right place
+        show mc smile onlayer mcsprite
 
         play music "audio/peaceful.mp3" fadein 2
 
         pause(0.5)
 
-        "I waited on the bench patiently, even thought Mira was already half-an-hour late."
+        "I waited on the bench patiently, even though Mira was already half-an-hour late."
 
         "Well, \"patiently\" might have been giving me too much credit - Mira had a habit of running late, no matter how much I nagged her about it."
+        
+        show mc shocked onlayer mcsprite
 
         "Still, half-an-hour was pushing it, even for her..."
 

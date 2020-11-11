@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 21: expected 'simple_expression' not found.
-    xalign = 0.0
-           ^
+File "game/script.rpy", line 26: expected 'comma or end of line' not found.
+    onlayer mcsprite
+    ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Wed Nov 11 09:40:02 2020
+Wed Nov 11 09:59:57 2020
