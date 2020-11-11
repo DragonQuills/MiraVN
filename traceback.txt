@@ -1,30 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 52, in script
-    
-  File "game/script.rpy", line 52, in <module>
-    
-NameError: name 'center_left' is not defined
+  File "game/script.rpy", line 19, in script
+    default menu_style = "v"
+  File "game/script.rpy", line 19, in <module>
+    default menu_style = "v"
+Exception: Expected an image, but got a general displayable.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 52, in script
-    
-  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\ast.py", line 1183, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\ast.py", line 1142, in show_imspec
-    at_list = [ renpy.python.py_eval(i) for i in at_list ]
-  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\python.py", line 2059, in py_eval
-    return py_eval_bytecode(code, globals, locals)
+  File "game/script.rpy", line 19, in script
+    default menu_style = "v"
+  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\ast.py", line 1013, in execute
+    img = renpy.python.py_eval_bytecode(self.code.bytecode)
   File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\python.py", line 2052, in py_eval_bytecode
     return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 52, in <module>
-    
-NameError: name 'center_left' is not defined
+  File "game/script.rpy", line 19, in <module>
+    default menu_style = "v"
+  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\display\im.py", line 850, in __init__
+    im = image(im)
+  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\display\im.py", line 1755, in image
+    raise Exception("Expected an image, but got a general displayable.")
+Exception: Expected an image, but got a general displayable.
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 Test 1.0
-Wed Nov 11 08:51:26 2020
+Wed Nov 11 09:37:50 2020

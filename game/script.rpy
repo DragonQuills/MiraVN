@@ -15,6 +15,14 @@ image char2 andro masc = im.FactorScale("images/mc/char2 andro masc.png", 0.4)
 image char3 fem = im.FactorScale("images/mc/char3 fem.png", 0.4)
 image char4 masc = im.FactorScale("images/mc/char4 masc.png", 0.4)
 
+default mc_type = "andro_masc"
+
+transform mc_transform:
+    xalign 0.0
+    zoom 0.3
+
+image mc smile = At(DynamicImage("images/mc/[mc_type]/smile.png"), mc_transform)
+
 
 default menu_style = "v"
 
@@ -74,17 +82,17 @@ label start:
             "Pick what you want to look like."
 
             "Definitely this cutie!":
-                $ pass
+                $ mc_type = "andro_fem"
                 
             "No, this lil darling!":
-                $ pass
+                $ mc_type = "andro_masc"
 
             "Wait no, this sweetie!":
-                $ pass
+                $ mc_type = "fem"
             
             "Final answer, this bae!":
-                $ pass
-    
+                $ mc_type = "masc"
+
         # label are_you_sure_setup:
         #     menu:
         #         "Name: [name]"
@@ -92,6 +100,8 @@ label start:
     label park_intro:
         scene bg park
         with Dissolve(1)
+
+        show mc smile
 
         play music "audio/peaceful.mp3" fadein 2
 
