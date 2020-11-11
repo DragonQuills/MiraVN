@@ -1,40 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-After initialization, but before game start.
-  File "renpy/common/00start.rpy", line 82, in _init_language
-    renpy.change_language(language)
-  File "game/screens.rpy", line 244, in <module>
-    properties gui.choice_button_width(300)
-TypeError: 'int' object is not callable
+While running game code:
+  File "game/script.rpy", line 52, in script
+    
+  File "game/script.rpy", line 52, in <module>
+    
+NameError: name 'center_left' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\bootstrap.py", line 316, in bootstrap
-    renpy.main.main()
-  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\main.py", line 578, in main
-    run(restart)
-  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\main.py", line 75, in run
-    renpy.translation.init_translation()
-  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\translation\__init__.py", line 558, in init_translation
-    renpy.store._init_language()  # @UndefinedVariable
-  File "renpy/common/00start.rpy", line 82, in _init_language
-    renpy.change_language(language)
-  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\translation\__init__.py", line 638, in change_language
-    new_change_language(tl, language)
-  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\translation\__init__.py", line 604, in new_change_language
-    i.apply()
-  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\ast.py", line 2553, in apply
-    value = renpy.python.py_eval(expr)
+  File "game/script.rpy", line 52, in script
+    
+  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\ast.py", line 1183, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\ast.py", line 1142, in show_imspec
+    at_list = [ renpy.python.py_eval(i) for i in at_list ]
   File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\python.py", line 2059, in py_eval
     return py_eval_bytecode(code, globals, locals)
   File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\python.py", line 2052, in py_eval_bytecode
     return eval(bytecode, globals, locals)
-  File "game/screens.rpy", line 244, in <module>
-    properties gui.choice_button_width(300)
-TypeError: 'int' object is not callable
+  File "game/script.rpy", line 52, in <module>
+    
+NameError: name 'center_left' is not defined
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 Test 1.0
-Tue Nov 10 12:16:16 2020
+Wed Nov 11 08:51:26 2020

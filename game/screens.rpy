@@ -237,7 +237,7 @@ style choice_vbox:
 
 style choice_hbox:
     xalign 0.5
-    yalign 0.1
+    yalign 0.27
 
     spacing gui.char_choice_spacing
 

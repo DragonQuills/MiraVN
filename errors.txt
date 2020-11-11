@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 51: Menu does not contain any choices.
-    menu:
-         ^
+File "game/script.rpy", line 53: expected 'simple_expression' not found.
+    yalign:1.0
+          ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Tue Nov 10 12:46:24 2020
+Wed Nov 11 08:55:27 2020

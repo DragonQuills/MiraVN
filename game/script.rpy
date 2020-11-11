@@ -10,10 +10,32 @@ image mira annoyed = im.FactorScale("images/mira/mira annoyed.png", 0.6)
 image mira delighted = im.FactorScale("images/mira/mira delighted.png", 0.6)
 image mira smug = im.FactorScale("images/mira/mira smug.png", 0.6)
 
+image char1 andro fem = im.FactorScale("images/mc/char1 andro fem.png", 0.4)
+image char2 andro masc = im.FactorScale("images/mc/char2 andro masc.png", 0.4)
+image char3 fem = im.FactorScale("images/mc/char3 fem.png", 0.4)
+image char4 masc = im.FactorScale("images/mc/char4 masc.png", 0.4)
+
+
 default menu_style = "v"
+
+transform center_right:
+    xalign 0.35
+    yalign 1.0
+
+transform center_right:
+    xalign 0.60
+    yalign 1.0
 
 # The game starts here.
 label start:
+    transform center_right:
+        xalign 0.35
+        yalign 1.0
+
+    transform center_right:
+        xalign 0.60
+        yalign 1.0
+
     label setup:
         python:
             name = renpy.input("What's your name?")
@@ -26,14 +48,27 @@ label start:
             affection = 50
 
 
-        show masc at left
-        show fem at center
-        show andro at right
+        show char1 andro fem:
+            xalign -0.10
+            yalign 1.0
+
+        show char2 andro masc:
+            xalign 0.25
+            yalign 1.0
+
+        show char3 fem:
+            xalign 0.70
+            yalign 1.0
+
+        show char4 masc:
+            xalign 1.1
+            yalign 1.0
+
 
         $ menu_style = "char"
 
         # TODO: put this stuff in the gui or screen file somehow, it shouldn't be here.
-        define gui.choice_button_width = 350
+        define gui.choice_button_width = 300
 
         menu:
             "Pick what you want to look like."
@@ -41,17 +76,18 @@ label start:
             "Definitely this cutie!":
                 $ pass
                 
-            "No, this cutie!":
+            "No, this lil darling!":
                 $ pass
 
-            "Wait no, this cutie!":
+            "Wait no, this sweetie!":
                 $ pass
             
-            "Final answer, this one!"
+            "Final answer, this bae!":
+                $ pass
     
-        label are_you_sure_setup:
-            menu:
-                "Name: [name]"
+        # label are_you_sure_setup:
+        #     menu:
+        #         "Name: [name]"
 
     label park_intro:
         scene bg park

@@ -220,7 +220,7 @@ define gui.choice_button_text_insensitive_color = "#444444"
 # define gui.char_choice_button_width = 350
 
 ## The spacing between chioces for the character selection menu
-define gui.char_choice_spacing = 102
+define gui.char_choice_spacing = 40
 
 
 ## File Slot Buttons ###########################################################
