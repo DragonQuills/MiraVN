@@ -44,8 +44,14 @@ label start:
             "No, this cutie!":
                 $ pass
 
-            "Wait no, this one!":
+            "Wait no, this cutie!":
                 $ pass
+            
+            "Final answer, this one!"
+    
+        label are_you_sure_setup:
+            menu:
+                "Name: [name]"
 
     label park_intro:
         scene bg park

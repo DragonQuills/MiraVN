@@ -13631,4 +13631,9 @@ Root FBO is: 0
 FBO Maximum Texture Size: 2048
 Total time until interface ready: 1885.1190002s
 - Target is 5 frames in 0.333333333333 seconds.
-- Frame drawn 
+- Frame drawn at 0.000000 seconds.
+- Frame drawn at 0.017667 seconds.
+- Frame drawn at 0.034667 seconds.
+- Frame drawn at 0.050667 seconds.
+- Frame drawn at 0.067667 seconds.
+- 0.067667 seconds to render 5 frames.
