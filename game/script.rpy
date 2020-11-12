@@ -2,10 +2,6 @@
 ## Initialization
 ################################################################################
 
-init python:
-    # this adds a new layer 'mcsprite' so the main character sprite is in front of the text box
-    config.layers = [ 'master', 'transient', 'screens', 'overlay', 'mcsprite' ]
-
 # The menu has two options - "char" and "v"
 # v is the basic vertical menu. "char" is a spread out horizontal menu only used on the character selection screen
 default menu_style = "v"
@@ -23,7 +19,7 @@ transform center_right:
 ################################################################################
 
 define m = Character("Mira", color = "#F6AEA0")
-define mc = Character("[name]", color = "#6db0eb")
+define mc = Character("[name]", image = "mc",  color = "#6db0eb")
 
 
 ################################################################################
@@ -50,13 +46,19 @@ default mc_type = "andro_masc"
 
 # used to position the mc at the lower left corner of the screen at a small size
 transform mc_transform:
-    xalign -0.05
+    xalign -0.1
     zoom 0.3
 
 # The DynamicImage lets me do string interpolation of mc_type to let the player pick their character
 # the At(imagelike, transformations) lets me apply the position and zoom as defaults
+# "side" is useds to mark that the image should be a mini image on the side of the screen above the text box
+image side mc smile = At(DynamicImage("images/mc/[mc_type]/smile.png"), mc_transform)
+image side mc shocked = At(DynamicImage("images/mc/[mc_type]/shocked.png"), mc_transform)
+
 image mc smile = At(DynamicImage("images/mc/[mc_type]/smile.png"), mc_transform)
-image mc shocked = At(DynamicImage("images/mc/[mc_type]/shocked.png"), mc_transform)
+
+default pronouns = "they"
+default pronouns_type = "plural"
 
 ################################################################################
 ## Game
@@ -103,7 +105,7 @@ label start:
         $ menu_style = "char"
 
         # TODO: put this stuff in the gui or screen file somehow, it shouldn't be here.
-        define gui.choice_button_width = 300
+        # default gui.choice_button_width = 300
 
         # TODO: reset the menu type and the gui button width after this menu.
 
@@ -122,32 +124,53 @@ label start:
             "Final answer, this bae!":
                 $ mc_type = "masc"
         
-        # pick pronouns!
+        $ menu_style = "v"
+        # $ gui.choice_button_width = 790
 
-        # label are_you_sure_setup:
-        #     # hide characters except the one the player chose
-        #     # move the one the player chose to the center
-        #     $ menu_style = "v"
-        #     menu:
-        #         "Name: [name]"
+        # pick pronouns!
+        menu:
+            "Which pronouns would you like your character to use?"
+
+            "they/them":
+                $ pronouns = "they"
+                $ pronouns_type = "plural"
+            "she/her":
+                $ pronouns = "she"
+                $ pronouns_type = "sing"
+            "he/him":
+                $ pronouns = "he"
+                $ pronouns_type = "sing"
+
+        label are_you_sure_setup:
+            hide char1
+            hide char2
+            hide char3
+            hide char4
+            
+            show mc smile:
+                xalign 0.5
+                yalign 1.0
+                zoom 1.5
+            menu:
+                "Name: [name] \nPronouns: [pronouns] \nIs this correct?"
+
+                "Yes!":
+                    jump park_intro
+                "No...":
+                    jump setup
 
 
     label park_intro:
         scene bg park
         with Dissolve(1)
 
-        # you need to do "onlayer mcsprite" to make the mc show up in the right place
-        show mc smile onlayer mcsprite
-
         play music "audio/peaceful.mp3" fadein 2
 
         pause(0.5)
 
-        "I waited on the bench patiently, even though Mira was already half-an-hour late."
+        mc smile "I waited on the bench patiently, even though Mira was already half-an-hour late."
 
         "Well, \"patiently\" might have been giving me too much credit - Mira had a habit of running late, no matter how much I nagged her about it."
-        
-        show mc shocked onlayer mcsprite
 
         "Still, half-an-hour was pushing it, even for her..."
 
@@ -155,7 +178,7 @@ label start:
 
         "The sunlight made a mosaic out of the freshly fallen autumn leaves and the cool breeze coming off of the lake felt nice on my skin."
 
-        "Fall had always been my favorite season. Something about the feeling of change in the air was somehow exhilerating yet peaceful to me."
+        "Fall had always been my favorite season. Something about the feeling of change in the air was somehow exhilarating yet peaceful to me."
 
         "This year was particularly beautiful. Every tree seemed to be trying to outshine all the others with dazzling colors. There was a faint scent of maple in the air and the only sound was the quiet breeze as it rustled the leaves."
 

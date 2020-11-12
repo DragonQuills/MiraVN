@@ -1,15 +1,15 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 125, in script
-    "Well, \"patiently\" might have been giving me too much credit - Mira had a habit of running late, no matter how much I nagged her about it."
-Exception: Trying to add something to non-existent layer 'mcspirte'.
+  File "game/script.rpy", line 235, in script
+    "I moved over, making space on the bench for Mira to sit down with me."
+Exception: Trying to add something to non-existent layer 'mcsprite'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 125, in script
-    "Well, \"patiently\" might have been giving me too much credit - Mira had a habit of running late, no matter how much I nagged her about it."
+  File "game/script.rpy", line 235, in script
+    "I moved over, making space on the bench for Mira to sit down with me."
   File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\ast.py", line 1183, in execute
     show_imspec(self.imspec, atl=getattr(self, "atl", None))
   File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\ast.py", line 1153, in show_imspec
@@ -18,9 +18,9 @@ Full traceback:
     sls.add(layer, img, key, zorder, behind, at_list=at_list, name=name, atl=atl, default_transform=default_transform, transient=transient)
   File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\display\core.py", line 1029, in add
     raise Exception("Trying to add something to non-existent layer '%s'." % layer)
-Exception: Trying to add something to non-existent layer 'mcspirte'.
+Exception: Trying to add something to non-existent layer 'mcsprite'.
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 Test 1.0
-Wed Nov 11 10:32:31 2020
+Thu Nov 12 13:30:40 2020

@@ -114,7 +114,7 @@ screen say(who, what):
     ## If there's a side image, display it above the text. Do not display on the
     ## phone variant - there's no room.
     if not renpy.variant("small"):
-        add SideImage() xalign 0.0 yalign 1.0
+        add SideImage() xalign -0.05 yalign 1.0
 
 
 ## Make the namebox available for styling through the Character object.
@@ -131,6 +131,8 @@ style namebox_label is say_label
 
 
 style window:
+    # adds padding to the text so the side character isn't on top of the text
+    left_padding 20
     xalign 0.5
     xfill True
     yalign gui.textbox_yalign
@@ -205,13 +207,14 @@ style input:
 ## https://www.renpy.org/doc/html/screen_special.html#choice
 
 screen choice(items):
-    style_prefix "choice"
 
     if menu_style == 'char':
+        style_prefix "h_choice"
         hbox:
             for i in items:
                 textbutton i.caption action i.action
     else:
+        style_prefix "choice"
         vbox:
             for i in items:
                 textbutton i.caption action i.action
@@ -226,7 +229,9 @@ define config.narrator_menu = True
 style choice_vbox is vbox
 style choice_hbox is hbox
 style choice_button is button
+style h_choice_button is button
 style choice_button_text is button_text
+style h_choice_button_text is button_text
 
 style choice_vbox:
     xalign 0.5
@@ -239,12 +244,18 @@ style choice_hbox:
     xalign 0.5
     yalign 0.27
 
-    spacing gui.char_choice_spacing
+    spacing gui.h_choice_spacing
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
 
+style h_choice_button is default:
+    properties gui.button_properties("h_choice_button")
+
 style choice_button_text is default:
+    properties gui.button_text_properties("choice_button")
+
+style h_choice_button_text is default:
     properties gui.button_text_properties("choice_button")
 
 
@@ -603,7 +614,6 @@ style about_label_text:
 screen save():
 
     tag menu
-
     use file_slots(_("Save"))
 
 

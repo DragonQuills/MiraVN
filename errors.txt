@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 26: expected 'comma or end of line' not found.
-    onlayer mcsprite
-    ^
+File "game/screens.rpy", line 615: keyword argument u'tag' appears more than once in a screen statement.
+    tag mcsprite
+       ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Wed Nov 11 09:59:57 2020
+Thu Nov 12 12:33:07 2020
