@@ -44,6 +44,10 @@ Backgrounds from Pixabay
 
 - [Character Selection Background](https://pixabay.com/illustrations/texture-background-soft-blue-light-1668079/)
 
+Backgrounds from Unsplash
+
+- [MC's Bedroom](https://unsplash.com/photos/G2rwqKGp1dE)
+
 ### **Music**
 
 Peaceful Park Theme - Sunwall by Stefan Kartenberg (c) copyright 2020 Licensed under a Creative Commons Attribution Noncommercial  (3.0) license. http://dig.ccmixter.org/files/JeffSpeed68/62378 Ft: Javolenus

@@ -54,6 +54,13 @@ transform mc_transform:
 # "side" is useds to mark that the image should be a mini image on the side of the screen above the text box
 image side mc smile = At(DynamicImage("images/mc/[mc_type]/smile.png"), mc_transform)
 image side mc shocked = At(DynamicImage("images/mc/[mc_type]/shocked.png"), mc_transform)
+image side mc delighted = At(DynamicImage("images/mc/[mc_type]/delighted.png"), mc_transform)
+image side mc happy = At(DynamicImage("images/mc/[mc_type]/happy.png"), mc_transform)
+image side mc angry = At(DynamicImage("images/mc/[mc_type]/angry.png"), mc_transform)
+image side mc annoyed = At(DynamicImage("images/mc/[mc_type]/annoyed.png"), mc_transform)
+image side mc sad = At(DynamicImage("images/mc/[mc_type]/sad.png"), mc_transform)
+image side mc little sad = At(DynamicImage("images/mc/[mc_type]/little sad.png"), mc_transform)
+image side mc smug = At(DynamicImage("images/mc/[mc_type]/smug.png"), mc_transform)
 
 image mc smile = At(DynamicImage("images/mc/[mc_type]/smile.png"), mc_transform)
 
@@ -201,7 +208,7 @@ label start:
 
         "I sighed and ran my finger through my hair."
 
-        mc "Fine, fine, what's the reason?"
+        mc annoyed "Fine, fine, what's the reason?"
 
         show mira normal
 
@@ -212,28 +219,28 @@ label start:
 
         "I decided to give Mira a little bit of a hard time for keeping me waiting so long."
 
-        mc "A... paper bag is the reason I've been sitting here for the beter part of an hour?"
+        mc annoyed "A... paper bag is the reason I've been sitting here for the better part of an hour?"
 
         show mira annoyed
         m "No, of course not!"
 
         "My stern facade broke at her indignant face and I couldn't help but laugh. It was impossible to stay angry at Mira when she pouted like that."
 
-        mc "Sorry, Mira. What's in the bag?"
+        mc smile "Sorry, Mira. What's in the bag?"
 
         show mira normal
         m "Ok, sooooo, you know that new pastry store that opened downtown?"
 
-        mc "The one run by some famous chef from France?"
+        mc shocked"The one run by some famous chef from France?"
 
         m "Yup! Well, today they were having a special deal - buy-one-get-one-free! So I got us some!"
 
-        "Mira opened up the bag and pulled out two decedant looking pastries then offered one to me."
+        "Mira opened up the bag and pulled out two decedent looking pastries then offered one to me."
 
         show mira delighted
         m "See? I told you I had a good reason!"
 
-        mc "That you did."
+        mc smile "That you did."
 
         "I moved over, making space on the bench for Mira to sit down with me."
 
@@ -266,7 +273,7 @@ label start:
             show mira shocked
             m "Hey! [name]! Give that back!"
 
-            mc "Never! Pastries or death!"
+            mc smug"Never! Pastries or death!"
 
             show mira sad
             m "C'mon, [name], please..."
@@ -284,7 +291,7 @@ label start:
             label give_back:
                 $ affection += 10
 
-                mc "Fiiiiine."
+                mc smile "Fiiiiine."
 
                 show mira delighted
                 "I handed Mira her pastry back and she beamed."
@@ -305,7 +312,7 @@ label start:
 
                 "I swallowed the pastry, then looked at Mira in surprise."
 
-                mc "Wait, there were more?"
+                mc shocked "Wait, there were more?"
 
                 m "Of course, you think I would keep you waiting for an hour for a single pastry?"
 
@@ -321,7 +328,7 @@ label start:
         label ask_for_bite:
             $ affection += 10
 
-            mc "Could I have a bite?"
+            mc little sad "Could I have a bite?"
 
             "Mira looked up at me from my shoulder."
 
@@ -353,7 +360,7 @@ label start:
 
             m "Thanks for eating the orange ones! I don't like them, too bitter for me."
 
-            mc "No problem, I don't mind them."
+            mc happy "No problem, I don't mind them."
 
             "We ate our pastries together and relaxed, soaking up the sun and each other's company."
 
@@ -382,7 +389,7 @@ label start:
 
             "Such adorable little furballs, I couldn't help but love them. The cafe had between three and a dozen cats at a time, most of which were up for adoption. Mira loved cats as much as I did so we went to the cafe together at least once a week."
 
-            "Unfortunately, Mira's apartment wasn't pet friendly, or she definietly would have adopted one. Although maybe that was a good thing - I had talked Mira out of getting a cat more times than I could count."
+            "Unfortunately, Mira's apartment wasn't pet friendly, or she definitely would have adopted one. Although maybe that was a good thing - I had talked Mira out of getting a cat more times than I could count."
 
             "If she got a pet-friendly apartment she might suffocate under the weight of cat hair from the 30 cats she would adopt. Or at least go broke from buying premium pet food for them."
 
@@ -394,8 +401,10 @@ label start:
                 "Mira was still waiting on my answer."
 
                 "I'll definitely be there!":
+                    $ cafe_eww = False
                     jump cafe_yes
                 "Ugh, but 10am is so early... If I have to...":
+                    $ cafe_eww = True
                     jump cafe_eww
 
             label cafe_yes:
@@ -403,7 +412,7 @@ label start:
 
                 show mira delighted
 
-                "Mira grined from ear-to-ear."
+                "Mira grinned from ear-to-ear."
 
                 m "Great! Well, I'll see you there!"
 
@@ -418,13 +427,13 @@ label start:
 
                 m "I mean, of course you don't have to come if you don't want to, it's just our regular thing, so..."
 
-                mc "Nah, I guess it's fine. I'll see you there."
+                mc little sad "Nah, I guess it's fine. I'll see you there."
 
                 m "Ok, if you're sure..."
 
-                jump go_home
+                jump end_day
 
-        label go_home:
+        label end_day:
             # fix that!
             "I said goodbye to Mira and started to walk back to my apartment."
 
@@ -432,17 +441,115 @@ label start:
 
             m "Remember, 10am sharp! If you're late you have to buy the drinks."
 
-            mc "Yeah right, as if you're going to get there earlier than I am, Ms. Hour Late!"
+            mc smug "Yeah right, as if you're going to get there earlier than I am, Ms. Hour Late!"
 
             show mira annoyed
             "Mira stuck out her tongue at me and we both went our separate ways."
             hide mira
             with easeoutright
 
+            scene bg park night
+            with Dissolve(2)
+
+            "I walked back to my apartment as night blanketed the town around me. The moon and fireflies provided light where the streetlights couldn't reach, dusting the world with a gentle glow that softened the shadows."
+            "The air turned from the crisp of autumn days to the cold of autumn nights and I was grateful for my scarf as the air nipped at my face. I breathed in the scent of incoming rain and increased my pace."
+
+            scene bg moon
+            with Dissolve(1)
+            "As I was about to exit the park, I slowed and looked up at the moon and thought about my day with Mira."
+            "Mira and I had been friends for quite some time now and we'd grown comfortable with each other."
+
+            menu:
+                "But did I want our relationship to change?"
+
+                "No, I like our friendship and don't want to change it.":
+                    $ date = False
+                    jump walk_home
+                "Yes, I'm interested in a romantic relationship with Mira.":
+                    $ date = True
+                    jump walk_home
+                    
+        label walk_home:
+            scene bg city night
+            with Dissolve(1)
+            "I left the park and moved to the streets, keeping a swifter pace to avoid the rain."
+            "Fortunately I made it home right in time, arriving at my apartment right as the pitter-patter of light rain began."
+
+            scene bg bedroom:
+                zoom 0.4
+            with Dissolve(0.5)
+            "I stepped inside, removed my outerwear, and went to my bedroom to change into my pajamas. I was tired from the long day and I soon entered the strange state between wakefulness and sleep."
+            if date:
+                "I thought about how to ask Mira if she felt the same as I drifted into a peaceful sleep..."
+            else:
+                "I thought about how happy I was to have Mira in my life  as I drifted into a peaceful sleep..."
+            
+            scene black
+            with Dissolve(3.5)
+
+            jump cafe_day
+
         label cafe_day:
-            "bye"
-            #  make mira walk off the screen somehow?
-            # mc goes home and goes to cafe next morning
+            scene bg bedroom:
+                zoom 0.4
+            with Dissolve(2) 
+            
+            "I groaned as the beeping of my alarm pulled me into consciousness. I blinked at the alarm blearily and was about to turn it off before I remembered my prior commitment to meet Mira."
+            menu:
+                "A few more minutes couldn't hurt...":
+                    $ affection -= 10
+                    $ slept_in = True
+                    jump slept_in
+                "I should get up, I don't want to keep Mira waiting.":
+                    $ slept_in = False
+                    $ affection += 10
+                    "I ate a light breakfast, put on some clothing for the day and relaxed for a little while before it was time to go."
+                    jump cafe
+
+            label slept_in:
+                "I turned off the alarm and went back to sleep."
+                mc little sad "I'm sure Mira will be late anyway, what's the point in getting up now?"
+                "I fell back asleep almost immediately."
+                scene bg black
+                with Dissolve(2)
+
+                scene bg bedroom
+                with Dissolve(2)
+
+                "I awoke naturally some time later."
+                mc smile "Ahh... I feel better rested."
+                mc shocked "Wait, it's already 9:50? Oh geez, I need to go!"
+
+                "I threw on clothes and raced out the door."
+                jump cafe
+
+            label cafe:
+                scene bg cafe outside:
+                    zoom 0.9
+                with Dissolve(1)
+                if slept_in:
+                    "I arrived at the cafe almost 30 minutes late and, of course, this was the one time Mira was on time. She waved me down as I approached."
+
+                    show mira shocked 
+                    m "Is everything ok? You're running really late."
+
+                    mc little sad "Yeah, I'm fine, I just slept in"
+
+                    show m sad
+                    m "Well, I'm glad you're alright."
+
+                    show mira smug
+                    m "I guess I get a free drink today, huh?"
+
+                else:
+                    "I arrived at the cafe right on time, seeing Mira waiting outside."
+
+                    mira delighted "Hey [name], looks like I beat you today! But I've only been here for a few minutes so I'll be generous and call it a tie."
+
+            
+
+                
+
 
 
 
