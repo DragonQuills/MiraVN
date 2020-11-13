@@ -44,6 +44,12 @@ Backgrounds from Pixabay
 
 - [Character Selection Background](https://pixabay.com/illustrations/texture-background-soft-blue-light-1668079/)
 
+- [Park at Night](https://pixabay.com/photos/city-walkway-street-boat-the-fog-2045453/)
+
+- [Moon](https://pixabay.com/photos/moon-cloud-night-view-night-sky-1180345/)
+
+- [City at Night](https://pixabay.com/photos/alley-street-night-evening-city-89197/)
+
 Backgrounds from Unsplash
 
 - [MC's Bedroom](https://unsplash.com/photos/G2rwqKGp1dE)
@@ -51,3 +57,19 @@ Backgrounds from Unsplash
 ### **Music**
 
 Peaceful Park Theme - Sunwall by Stefan Kartenberg (c) copyright 2020 Licensed under a Creative Commons Attribution Noncommercial  (3.0) license. http://dig.ccmixter.org/files/JeffSpeed68/62378 Ft: Javolenus
+
+From [Zapsplat.com](https://www.zapsplat.com/)
+
+Nighttime Music
+
+Cafe Sound
+
+Bird Song
+
+### **Sound Effects***
+
+Cat Purring
+
+From [Zapsplat.com](https://www.zapsplat.com/)
+
+Alarm

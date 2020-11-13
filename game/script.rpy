@@ -27,6 +27,7 @@ define mc = Character("[name]", image = "mc",  color = "#6db0eb")
 ################################################################################
 # Define Mira images
 image mira sad = im.FactorScale("images/mira/mira sad.png", 0.6)
+image mira little sad = im.FactorScale("images/mira/mira little sad.png", 0.6)
 image mira happy = im.FactorScale("images/mira/mira happy.png", 0.6)
 image mira shocked = im.FactorScale("images/mira/mira shocked.png", 0.6)
 image mira normal = im.FactorScale("images/mira/mira normal.png", 0.6)
@@ -67,6 +68,10 @@ image mc smile = At(DynamicImage("images/mc/[mc_type]/smile.png"), mc_transform)
 default pronouns = "they"
 default pronouns_type = "plural"
 
+image grey cat flop = im.FactorScale("images/cats/grey-kitten/grey-kitten2.png", 0.6)
+image grey cat sleep = im.FactorScale("images/cats/grey-kitten/grey-kitten4.png", 0.6)
+image white cat curl = im.FactorScale("images/cats/white-kitten/white-kitten8.png", 0.6)
+
 ################################################################################
 ## Game
 ################################################################################
@@ -91,6 +96,7 @@ label start:
             # how much Mira likes the MC.
             # Needs to be above something for dating or strong friendship
             # If too low, MC and Mira will drift apart.
+            # 100 is the highest the affection can get, 0 is the lowest
             affection = 50
 
         # Display characters for character picker
@@ -173,7 +179,7 @@ label start:
         scene bg park
         with Dissolve(1)
 
-        play music "audio/peaceful.mp3" fadein 2
+        play music "audio/music/peaceful.mp3" fadein 2
 
         pause(0.5)
 
@@ -226,7 +232,7 @@ label start:
 
         "My stern facade broke at her indignant face and I couldn't help but laugh. It was impossible to stay angry at Mira when she pouted like that."
 
-        mc smile "Sorry, Mira. What's in the bag?"
+        mc delighted "Sorry, Mira. What's in the bag?"
 
         show mira normal
         m "Ok, sooooo, you know that new pastry store that opened downtown?"
@@ -342,11 +348,17 @@ label start:
 
             "I leaned back and enjoyed the feelings of the sunlight on my face and Mira resting on my shoulder."
 
-            jump leaving_park
+            "After a while of resting, Mira sat up."
+            show mira normal
+            m "Hey, guess what?"
+
+            mc smile "Hmm?"
+
+            jump more_pastries
 
 
         label more_pastries:
-            m "I bought more of them!"
+            m "I bought more pastries!"
 
             hide mira
             with Dissolve(0.8)
@@ -389,7 +401,7 @@ label start:
 
             "Such adorable little furballs, I couldn't help but love them. The cafe had between three and a dozen cats at a time, most of which were up for adoption. Mira loved cats as much as I did so we went to the cafe together at least once a week."
 
-            "Unfortunately, Mira's apartment wasn't pet friendly, or she definitely would have adopted one. Although maybe that was a good thing - I had talked Mira out of getting a cat more times than I could count."
+            "Unfortunately, Mira's apartment wasn't pet-friendly, or she definitely would have adopted one. Although maybe that was a good thing - I had talked Mira out of getting a cat more times than I could count."
 
             "If she got a pet-friendly apartment she might suffocate under the weight of cat hair from the 30 cats she would adopt. Or at least go broke from buying premium pet food for them."
 
@@ -416,7 +428,7 @@ label start:
 
                 m "Great! Well, I'll see you there!"
 
-                jump go_home
+                jump end_day
 
             label cafe_eww:
                 $ affection -=10
@@ -439,7 +451,7 @@ label start:
 
             show mira happy
 
-            m "Remember, 10am sharp! If you're late you have to buy the drinks."
+            m "Remember, 10am sharp! If you're late you have to buy the drinks and snacks."
 
             mc smug "Yeah right, as if you're going to get there earlier than I am, Ms. Hour Late!"
 
@@ -450,6 +462,7 @@ label start:
 
             scene bg park night
             with Dissolve(2)
+            play music "audio/music/night.mp3" fadeout 1 fadein 1
 
             "I walked back to my apartment as night blanketed the town around me. The moon and fireflies provided light where the streetlights couldn't reach, dusting the world with a gentle glow that softened the shadows."
             "The air turned from the crisp of autumn days to the cold of autumn nights and I was grateful for my scarf as the air nipped at my face. I breathed in the scent of incoming rain and increased my pace."
@@ -524,8 +537,10 @@ label start:
                 jump cafe
 
             label cafe:
+                play music "audio/music/cafe.mp3" fadeout 1 fadein 1
                 scene bg cafe outside:
-                    zoom 0.9
+                    zoom 1.0
+                    yalign 0.8
                 with Dissolve(1)
                 if slept_in:
                     "I arrived at the cafe almost 30 minutes late and, of course, this was the one time Mira was on time. She waved me down as I approached."
@@ -535,23 +550,276 @@ label start:
 
                     mc little sad "Yeah, I'm fine, I just slept in"
 
-                    show m sad
+                    show mira sad
                     m "Well, I'm glad you're alright."
 
                     show mira smug
                     m "I guess I get a free drink today, huh?"
 
+                    "Mira was playing it off, but I could tell she had been genuinely worried about me."
+
                 else:
                     "I arrived at the cafe right on time, seeing Mira waiting outside."
 
-                    mira delighted "Hey [name], looks like I beat you today! But I've only been here for a few minutes so I'll be generous and call it a tie."
+                    show mira delighted
+                    m "Hey [name], looks like I beat you today! Finally, free food for me!"
 
-            
+                    m "Now c'mon, the cats are getting cold!"
 
+                    mc happy "I'm pretty sure that's not how that works."
+
+                    "Mira tugged on my sleeve insistently, pulling me towards the cafe."
+                    m "Sure it is! Now come oooonnn!"
+                
+                scene bg cafe inside
+                with Dissolve(1)
+
+                "We walked into the cat cafe, greeted by the tinkling of the door's bell and the low rumble of a purr."
+
+                show grey cat flop:
+                    yalign 0.8
+                    xalign 0.3
+                "A grey three-legged cat twined around Mira's legs as we walked up to the counter, then flopped on the floor when Mira reached down to pet him."
+
+                show mira delighted at right behind grey
+                "Awww, hi Yardstick! Happy to see me?"
+
+                "Yardstick, aptly named for his three feet, was one of the owners cats so he was a permanent fixture. Mira had always been a favorite of his."
+
+                show grey cat flop:
+                    yalign 1.3
+                    xalign 0.2
+                show mira happy at left
+                with move
+
+
+                "Mira scratched behind his ears affectionately, then scooped him up and went to sit on a cozy sofa in the corner."
+
+                m "Grab me whatever you think I would like!"
+
+                hide mira
+                hide grey cat
+                with moveoutleft
+
+
+                "I strolled up to the cafe's counter, pausing along the way to pet the inquisitive kitties that greeted me."
+                "I contemplated what to get Mira."
+                default snacks_opinion = 0
+
+                menu:
+                    "Which food do I pick for Mira?"
+                    
+                    "Some cream puffs":
+                        $ affection += 0 
+                        $ snacks_opinion +=0
+                    "An orange scone":
+                        $ affection -= 5
+                        $ snacks_opinion -=1
+                    "A chocolate eclair.":
+                        $ affection += 5
+                        $ snacks_opinion +=1
+                    "A raspberry tart.":
+                        $ affection +=5
+                        $ snacks_opinion +=1
+                    "A turkey and cheese sandwich.":
+                        $ affection += 0
+                        $ snacks_opinion +=0
+
+                menu:
+                    "Which drink do I order for Mira?"
+
+                    "Steamed milk.":
+                        $ affection += 0
+                        $ snacks_opinion += 0
+                    "A pumpkin-spice latte.":
+                        $ affection += 5
+                        $ snacks_opinion += 1
+                    "A coffee, black.":
+                        $ affection -= 5
+                        $ snacks_opinion -=1
+                    "Hot chocolate with whipped cream.":
+                        $ affection += 5
+                        $ snacks_opinion +=1
+                    "Tea.":
+                        $ affection += 0
+                        $ snacks_opinion += 0
+                
+                show mira normal at center
+                show grey cat sleep:
+                    zoom 0.7
+                    yalign 0.9
+                    xalign 0.3
+
+                show white cat curl:
+                    zoom 0.8
+                    yalign 0.8
+                    xalign 0.7
+                
+                "Our order was ready soon enough and I brought it over to Mira."
+                "Yardstick was flopped over in her lap, purring like a tiny motorboat. A white cat I hadn't seen before was curled up next to her, dozing contentedly."
+                "I sat down next to Mira and handed her her food and drink."
+
+                if snacks_opinion == 2:
+                    show mira happy
+                    m "Wow, you got exactly what I would have gotten! Thank you so much!"
+                elif snacks_opinion == 1:
+                    show mira happy
+                    m "Not quite what I would have picked, but it's still pretty good!"
+                elif snacks_opinion == 0:
+                    show mira little sad
+                    m "Well, uh, I guess this is ok."
+                elif snacks_opinion == -1:
+                    show mira sad
+                    m "Oh, uh, I don't really like these."
+                else:
+                    show mira annoyed
+                    m "Uh, did you deliberately pick things I hate for some reason?"
+                
+                show mira happy
+                "Shortly after sitting down, the small white cat crawled over Mira's legs and sprawled over both of our laps. Mira giggled and stroked the cat's back."
+
+                m "Her name is Mazipan, isn't she precious? You know, she's up for adoption..."
+
+                mc annoyed "Mira, no, we've talked about this."
+
+                m "But she's sooooo sweet and she really likes me!"
+
+                mc "Mira. Your apartment doesn't allow pets."
+
+                show mira sad
+                m "I knoooow... I wish I could afford a pet-friendly place but so many of them around here have such high rent and then pet rent, and then the pet deposit..."
+
+                show mira little sad
+                "Mira rested her head on my shoulder with a sigh."
+                m "Maybe some day."
+
+                "Mira seemed really down, more so than usual. I knew she had cats as a kid and she hadn't been able to get one since moving out. Her apartment was small and largely undecorated and had always felt bit lonely to me."
+                
+                menu:
+                    "\"Hey, why don't you tell me about that new show you've been watching?\"":
+                        $ affection += 5
+                        show mira happy
+                        m "Oh yeah, the last episode was soooo good, oh my gosh! Princess Wonderbeam FINALLY told the Witch Crystal that she loves her! It was so dramatic! Ok, so, at the start of the episode..."
+                        "Mira cheered up a bit as she told me about Princess Wonderbeam and the Pop Stars and Justice."
+                        jump important_conversations
+
+                    "\"It's ok that you're sad about it. I think you'll be able to get a cat someday, just not yet.\"":
+                        $ affection += 10
+                        show mira normal
+                        m "Thanks, [name]. I think I really needed to hear that. It feels a little silly, but it's lonely in my apartment without anyone else there."
+                        mc smile "It's not silly. My apartment feels lonely too sometimes."
+                        show mira delighted
+                        m " I guess we'll both have to come over more then, huh?"
+                        mc happy "I guess so! Maybe we could decorate your place a little more too. What do you think you'd want to put in it?"
+
+                        m "Oh! I had this great idea to wrap fairy lights around my bed posts and string them up the walls, and I thought that maybe I could..."
+                        "Mira and I talked for a while about ways to make her apartment feel a little more like home."
+                        jump important_conversations
+
+
+                    "\"Is it really that big of a deal? You can just come to this cafe, right?\"":
+                        $ affection -= 10
+                        show mira sad
+                        "Mira pulled back from my shoulder and wouldn't meet my eyes."
+                        m "Well, I mean, I guess it's not that big of a deal. But it still doesn't feel great, I guess? I miss my parents cats and my apartment doesn't really feel like a home."
+                        m "Maybe that's silly of me."
+
+                        show mira normal
+                        "Yardstick seemed to pick up on Mira's mood and butted his head against her hand, causing her to smile a little."
+                        m "Thanks, buddy. You're such a sweet cat."
+                        "She still wouldn't look at me and I got the sense that I had said something wrong."
+
+                        "Mira pet Yardstick until he was content that she was doing better, then curled back up and went to sleep."
+                        jump important_conversations
+
+
+            label important_conversations:
+                scene bg black with Dissolve(0.5)
+
+                scene bg cafe inside
+                show mira normal
+                with Dissolve(0.5)
+
+                "After finishing our food and spending a long time cuddling the cats in the cafe, I realized that I wanted to talk to Mira."
+                "Not just chat like we normally did; rather, there was something important I wanted to tell her."
+
+                mc little sad "Hey, Mira?"
+
+                m "Hmm? What is it, [name]?"
+                mc little sad "I just wanted to tell you..."
+
+                default ending = "good"
+
+                if not date:
+                    mc smile "You're my best friend and I love you so much. I'm so lucky to know you and I just wanted to tell you how much I appreciate you."
+                    if affection >= 85:
+                        show mira happy
+                        m "Awww, [name], that's so sweet! Thank you! I love you too."
+                        "Mira hugged me tightly."
+
+                    elif affection <= 25:
+                        show mira little sad
+                        m "Oh, uh, that's nice of you!"
+                        "Mira pointedly didn't say how she felt about me. An uncomfortable silence fell."
+                        $ ending = "bad"
+
+                    else:
+                        show mira normal
+                        m "Oh, thank you! You're pretty cool too!"
+                        $ ending = "normal"
+
+                elif date:
+                    mc happy "I really like you as more than a friend and I wanted to know if you maybe wanted to try dating?"
+                    if affection >= 85:
+                        show mira happy
+                        m "Aww, [name]! Yes, I've been trying to find the courage to ask! I would love to start dating and see where it goes."
+                        "Mira hugged me tightly."
+                        $ ending = "good"
+
+                    elif affection <= 25:
+                        show mira little sad
+                        m "Oh, uh, ok. That's, uh, wow."
+                        m "I, I don't really feel the same. Sorry."
+                        mc little sad "Oh, ok. Got it."
+                        "An uncomfortable silence fell."
+                        $ ending = "bad"
+
+                    else:
+                        show mira normal
+                        m "Oh, that's really flattering! We could give it a try."
+                        $ ending = "normal"
+                
+                "Mira and I said our goodbyes and left the cafe."
+                
+            label ending:
+                scene black with Dissolve(1)
+                if ending == "bad":
+                    "Mira and I grew apart as time went on. We just didn't connect like we used to."
+                    "After a moth we stopped meeting regularly. After a few more months, we only saw each other briefly every few weeks. Conversations were strained and I could tell neither of us were comfortable."
+                    "Finally, we fell out of contact entirely. I don't know where she is or what she's doing now. All I really know is that I don't have a place in her life anymore."
+                elif ending == "normal":
+                    if date:
+                        "Mira and I tried dating for a while, but it didn't really work out between us. We both agreed that we were better friends than partners."
+                        "However, Mira and I stayed friends after the break up and we still met up sometimes to catch up."
+                        "Our lives may have shifted and dating may not have worked out, but I'm glad we're still friends."
+                    else:
+                        "Mira and I stayed friends. We weren't the best of friends, but we still met up to catch up and talk about our lives."
+                        "Even though we're not as close as we used to be, I'm still glad Mira's a part of my life."
+                else:
+                    if date:
+                        "Mira and went on our first date shortly after that. We took it slow at the start, doing what we normally did but wth a new label."
+                        "It was clear to both of us that there was a strong connection. There always had been - the nature of it had just shifted."
+                        "After a year, we decided to move in together. We were able to cover the cost of a pet-friendly apartment together and Mira was able to get cats like she had always wanted."
+                        "Now, years later, I'm so glad that she's such a big part of my life. Our bond is stronger then ever and I can't see anything ever breaking it."
+                    else:
+                        "After telling Mira how much she meant to me, we decided together that we wanted to meet up more regularly. We enjoyed spending time together so much, it only made sense."
+                        "After a year, we decided to move in together. We were able to cover the cost of a pet-friendly apartment together and Mira was able to get cats like she had always wanted."
+                        "Now, years later, I'm so glad that she's such a big part of my life. Our bond is stronger then ever and I can't see anything ever breaking it."
                 
 
 
-
+                        
+                
 
     # This ends the game.
 
