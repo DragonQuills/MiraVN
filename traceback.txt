@@ -1,26 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 235, in script
-    "I moved over, making space on the bench for Mira to sit down with me."
-Exception: Trying to add something to non-existent layer 'mcsprite'.
+  File "game/script.rpy", line 439, in script
+    with moveoutright()
+TypeError: 'MoveInterpolate' object is not callable
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 235, in script
-    "I moved over, making space on the bench for Mira to sit down with me."
-  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\ast.py", line 1183, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\ast.py", line 1153, in show_imspec
-    atl=atl)
-  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\exports.py", line 717, in show
-    sls.add(layer, img, key, zorder, behind, at_list=at_list, name=name, atl=atl, default_transform=default_transform, transient=transient)
-  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\display\core.py", line 1029, in add
-    raise Exception("Trying to add something to non-existent layer '%s'." % layer)
-Exception: Trying to add something to non-existent layer 'mcsprite'.
+  File "game/script.rpy", line 439, in script
+    with moveoutright()
+  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\ast.py", line 1389, in execute
+    renpy.exports.with_statement(trans, paired)
+  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\exports.py", line 1601, in with_statement
+    return renpy.game.interface.do_with(trans, paired, clear=clear)
+  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\display\core.py", line 2251, in do_with
+    clear=clear)
+  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\display\core.py", line 2702, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
+  File "C:\Users\erina\Desktop\renpy-7.3.5-sdk\renpy\display\core.py", line 3047, in interact_core
+    new_widget=layers_root)
+TypeError: 'MoveInterpolate' object is not callable
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 Test 1.0
-Thu Nov 12 13:30:40 2020
+Thu Nov 12 14:19:55 2020

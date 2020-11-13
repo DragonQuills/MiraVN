@@ -209,21 +209,12 @@ define gui.choice_button_borders = Borders(100, 5, 100, 5)
 define gui.choice_button_text_font = gui.text_font
 define gui.choice_button_text_size = gui.text_size
 define gui.choice_button_text_xalign = 0.5
-define gui.choice_button_text_idle_color = "#cccccc"
+define gui.choice_button_text_idle_color = "#36454F"
 define gui.choice_button_text_hover_color = "#ffffff"
 define gui.choice_button_text_insensitive_color = "#444444"
 
+# Changes button size for horizontal menus 
 define gui.h_choice_button_width = 300
-define gui.h_choice_button_height = None
-define gui.h_choice_button_tile = False
-define gui.h_choice_button_borders = Borders(100, 5, 100, 5)
-define gui.h_choice_button_text_font = gui.text_font
-define gui.h_choice_button_text_size = gui.text_size
-define gui.h_choice_button_text_xalign = 0.5
-define gui.h_choice_button_text_idle_color = "#cccccc"
-define gui.h_choice_button_text_hover_color = "#ffffff"
-define gui.h_choice_button_text_insensitive_color = "#444444"
-
 ## The spacing between choices for the character selection menu
 define gui.h_choice_spacing = 40
 

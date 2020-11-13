@@ -228,10 +228,10 @@ define config.narrator_menu = True
 
 style choice_vbox is vbox
 style choice_hbox is hbox
+
 style choice_button is button
-style h_choice_button is button
 style choice_button_text is button_text
-style h_choice_button_text is button_text
+
 
 style choice_vbox:
     xalign 0.5
@@ -255,8 +255,7 @@ style h_choice_button is default:
 style choice_button_text is default:
     properties gui.button_text_properties("choice_button")
 
-style h_choice_button_text is default:
-    properties gui.button_text_properties("choice_button")
+
 
 
 ## Quick Menu screen ###########################################################

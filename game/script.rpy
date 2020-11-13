@@ -74,6 +74,8 @@ label start:
         yalign 1.0
 
     label setup:
+        scene bg blue
+
         python:
             name = renpy.input("What's your name?")
 
@@ -168,7 +170,7 @@ label start:
 
         pause(0.5)
 
-        mc smile "I waited on the bench patiently, even though Mira was already half-an-hour late."
+        "I waited on the bench patiently, even though Mira was already half-an-hour late."
 
         "Well, \"patiently\" might have been giving me too much credit - Mira had a habit of running late, no matter how much I nagged her about it."
 
@@ -187,7 +189,7 @@ label start:
         "I checked my watch. Almost forty minutes late. Where was she...?"
 
         show mira sad at right
-        with Dissolve(0.5)
+        with moveinright
 
         "Just as I was beginning to get worried, I saw Mira racing towards me, a paper bag clutched in her hand."
 
@@ -347,23 +349,25 @@ label start:
 
             "Mira ducked down and grabbed two more pastries from the paper bag at our feet."
 
-            "She offered me an orange Danish and sat back down to what looked like a razzberry crossiant."
+            "She offered me an orange Danish and sat back down to what looked like a raspberry croissant."
 
-            m "Thanks for eating the orange ones! I don't like them, too sour for me."
+            m "Thanks for eating the orange ones! I don't like them, too bitter for me."
+
+            mc "No problem, I don't mind them."
+
+            "We ate our pastries together and relaxed, soaking up the sun and each other's company."
 
             jump leaving_park
 
         label leaving_park:
 
-            scene None
-            with Dissolve(2)
+            scene bg black
+            with Dissolve(1)
 
             scene bg bench
-            with Dissolve(2)
-
-
+            with Dissolve(1)
             show mira normal at right
-            with Dissolve(0.5)
+            with Dissolve(0.3)
 
             "After a while, Mira stood up abruptly and dusted the crumbs off of her jeans."
 
@@ -430,9 +434,14 @@ label start:
 
             mc "Yeah right, as if you're going to get there earlier than I am, Ms. Hour Late!"
 
-            "Mira stuck out her tongue at me and we both went our seperate ways."
+            show mira annoyed
+            "Mira stuck out her tongue at me and we both went our separate ways."
+            hide mira
+            with easeoutright
 
-            # make mira walk off the screen somehow?
+        label cafe_day:
+            "bye"
+            #  make mira walk off the screen somehow?
             # mc goes home and goes to cafe next morning
 
 

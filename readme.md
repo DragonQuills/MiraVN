@@ -42,6 +42,8 @@ Backgrounds from Pixabay
 
 - [Hearts](https://pixabay.com/illustrations/heart-shape-mother-s-day-3093472/)
 
+- [Character Selection Background](https://pixabay.com/illustrations/texture-background-soft-blue-light-1668079/)
+
 ### **Music**
 
 Peaceful Park Theme - Sunwall by Stefan Kartenberg (c) copyright 2020 Licensed under a Creative Commons Attribution Noncommercial  (3.0) license. http://dig.ccmixter.org/files/JeffSpeed68/62378 Ft: Javolenus

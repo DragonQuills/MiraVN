@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 615: keyword argument u'tag' appears more than once in a screen statement.
-    tag mcsprite
-       ^
+File "game/script.rpy", line 441: expected statement.
+    vpunch
+          ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Thu Nov 12 12:33:07 2020
+Thu Nov 12 14:21:10 2020
