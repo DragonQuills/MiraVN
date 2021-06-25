@@ -752,7 +752,7 @@ label start:
 
                 if not date:
                     mc smile "You're my best friend and I love you so much. I'm so lucky to know you and I just wanted to tell you how much I appreciate you."
-                    if affection >= 85:
+                    if affection >= 80:
                         show mira happy
                         m "Awww, [name], that's so sweet! Thank you! I love you too."
                         "Mira hugged me tightly."
@@ -770,7 +770,7 @@ label start:
 
                 elif date:
                     mc happy "I really like you as more than a friend and I wanted to know if you maybe wanted to try dating?"
-                    if affection >= 85:
+                    if affection >= 80:
                         show mira happy
                         m "Aww, [name]! Yes, I've been trying to find the courage to ask! I would love to start dating and see where it goes."
                         "Mira hugged me tightly."
@@ -815,7 +815,8 @@ label start:
                         "After telling Mira how much she meant to me, we decided together that we wanted to meet up more regularly. We enjoyed spending time together so much, it only made sense."
                         "After a year, we decided to move in together. We were able to cover the cost of a pet-friendly apartment together and Mira was able to get cats like she had always wanted."
                         "Now, years later, I'm so glad that she's such a big part of my life. Our bond is stronger then ever and I can't see anything ever breaking it."
-                
+                "The End."
+                "Thanks for playing!"
 
 
                         
