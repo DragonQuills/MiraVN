@@ -12,10 +12,12 @@ A visual novel made in a few days so I could practice Ren'Py. It focuses on the 
 - Cats!
 
 ## **Gameplay Images**
-Coming soon!
+![Image of a character selection screen. A text box at the bottom of the screen says "Pick what you want to look like. There are four characters in an anime style, all of whom have black hair, green eyes, and round black glasses. The first character is androgynous leaning feminine with short hair, a purple scarf, and a grey jacket. The button about them says "Definitely this cutie!" The second character is androgynous with long, slightly shaggy hair with a flower in it. they are wearing a dark green scarf and a light blue overshirt. The button over them says "No, this lil darling!" The third character is feminine with long straight hair. They are wearing a light grey jacket and a dark red scarf. The button above them says "Wait no, this sweetie!" The fourth character is masculine with a black scarf and a brown overshirt. The button above their head says "Final answer, this bae!"](example_images/character_selection.png)
 
-## **How to Play**
-Also coming soon!
+![An image of a choice selection screen. An anime style girl is displayed on the right of the screen, smiling slightly. She has chin-length pink hair and dark pink eyes. She is wearing a light green hoodie, a black choker necklace, and a white flower in her hair. The background is a view of a park bench from behind, overlooking a lake. It is autumn. The text box at the bottom of the screen says "I decided to..." The options listed are "Steal her pastry!", "Ask for a bite.", and "Just relax and enjoy the day."](example_images/steal_pastry.png)
+
+![A picture of cartoon cats on a pink background with hearts. There are 5 cats, all in comfortable positions with varying fur colors. A text box at the bottom says "CATS!"](example_images/CATS!.png)
+
 
 ## **Credits**
 ### **Artwork**
