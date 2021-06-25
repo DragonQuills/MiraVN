@@ -1,3 +1,7 @@
+*.rpyc
+*.rpyb
+*.rpymc
+
 game/saves/*
 game/cache/*
 errors.txt
