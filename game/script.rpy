@@ -548,7 +548,7 @@ label start:
                     show mira shocked 
                     m "Is everything ok? You're running really late."
 
-                    mc little sad "Yeah, I'm fine, I just slept in"
+                    mc little sad "Yeah, I'm fine, I just slept in."
 
                     show mira sad
                     m "Well, I'm glad you're alright."
