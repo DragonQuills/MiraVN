@@ -30,6 +30,9 @@ define config.version = "1.0"
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
+A short visual novel about friendship and love.
+
+Credits for artwork, music, images, and more can be found at {a=https://github.com/DragonQuills/MiraVN}the Github page for the project{/a}.
 """)
 
 
