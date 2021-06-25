@@ -1,15 +1,18 @@
 # **Mira**
 ## **Description**
-A visual novel made in a few days so I could practice Ren'Py. It focuses on the main character's relationship with their friend, Mira. It's mainly made with open source resources, but the coding and writing are my own. Currently in progress, so features listed are in development.
+A visual novel made in a few days so I could practice Ren'Py. It focuses on the main character's relationship with their friend, Mira. It's made with open-source assets, but the coding and writing are my own.
 
 ### *Features*
-- Create your own character - input your name, pick between three appearances, and choose your pronouns (with write-in options available!)
+- Create your own character - input your name, pick between four appearances, and choose your pronouns
 - One romanceable/befriendable character
-- A decent amount of words (I haven't counted, nor have I finished writing them)
+- ~3,000 words (5 minutes play time)
 - Pretty photo backgrounds and cute anime-style characters
 - Choices that will make Mira like you more or less
-- 4 different endings
+- 6 different endings
+- Soft atmospheric music
 - Cats!
+- Pastries!
+- Light-hearted fluff!
 
 ## **Gameplay Images**
 ![Image of a character selection screen. A text box at the bottom of the screen says "Pick what you want to look like. There are four characters in an anime style, all of whom have black hair, green eyes, and round black glasses. The first character is androgynous leaning feminine with short hair, a purple scarf, and a grey jacket. The button about them says "Definitely this cutie!" The second character is androgynous with long, slightly shaggy hair with a flower in it. they are wearing a dark green scarf and a light blue overshirt. The button over them says "No, this lil darling!" The third character is feminine with long straight hair. They are wearing a light grey jacket and a dark red scarf. The button above them says "Wait no, this sweetie!" The fourth character is masculine with a black scarf and a brown overshirt. The button above their head says "Final answer, this bae!"](example_images/character_selection.png)
@@ -67,11 +70,3 @@ Nighttime Music
 Cafe Sound
 
 Bird Song
-
-### **Sound Effects***
-
-Cat Purring
-
-From [Zapsplat.com](https://www.zapsplat.com/)
-
-Alarm
